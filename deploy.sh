@@ -18,8 +18,10 @@ exitWithMessageOnError "Missing node.js executable, please install node.js, if a
 
 # Setup
 # -----
-APP_DIR=/var/tmp/testnodejs
+APP_DIR=/var/www/testnodejs
 NPM_CMD=npm
+CURR_DIR=`pwd`
+echo "Current working directory $CURR_DIR"
 
 mkdir -p $APP_DIR
 cp server.js $APP_DIR/
