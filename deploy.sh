@@ -23,20 +23,20 @@ NPM_CMD=npm
 CURR_DIR=`pwd`
 echo "Current working directory $CURR_DIR"
 
-mkdir -p $APP_DIR
-cp server.js $APP_DIR/
-cp package.json $APP_DIR/
+sudo mkdir -p $APP_DIR
+sudo cp $CURR_DIR/_karthick-kk.testnodejs/drop/server.js $APP_DIR/
+sudo cp $CURR_DIR/_karthick-kk.testnodejs/drop/package.json $APP_DIR/
 
 cd $APP_DIR
 echo "Running $NPM_CMD install --production"
-eval $NPM_CMD install --production
+eval sudo $NPM_CMD install --production
 
 hash pm2 2>/dev/null
   if [ ! $? -eq 0 ]; then
-    eval $NPM_CMD install -g pm2
+    eval sudo $NPM_CMD install -g pm2
   fi
 
-pm2 stop server.js
-pm2 start server.js --watch
+sudo pm2 stop server.js
+sudo pm2 start server.js --watch
 
 echo "Deployment Succeeded"
