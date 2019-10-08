@@ -36,7 +36,7 @@ hash pm2 2>/dev/null
     eval sudo $NPM_CMD install -g pm2
   fi
 
-sudo pm2 stop server.js
-sudo pm2 start server.js --watch
+sudo pm2 stop $APP_DIR/server.js
+sudo pm2 start $APP_DIR/server.js --watch
 
 echo "Deployment Succeeded"
